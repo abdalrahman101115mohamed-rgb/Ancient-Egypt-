@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
               </span>
             </div>
             <p className="text-[#8f94a8] leading-relaxed max-w-md text-xs">
-              منصة تعليمية عربية تفاعلية تهدف لإعادة إحياء الشغف باللغة المصرية القديمة بطريقة سهلة، ممتعة، ومبنية على التصنيف الصوتي المعتمد دولياً لقائمة السير آلان جاردنر وحجر رشيد.
+              منصة تعليمية عربية تفاعلية تهدف لإعادة إحياء الشغف باللغة المصرية القديمة بطريقة سهلة، ممتعة، ومبنية على التصنيف الصوتي المعتمد دولياً لقائمة السير آلان جاردنر، مع ميزة المسح الضوئي وترجمة النقوش بالكاميرا والصور.
             </p>
           </div>
 
@@ -28,6 +28,16 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
           <div className="space-y-2">
             <div className="font-semibold text-[#f4efe6]">أقسام المنصة:</div>
             <ul className="space-y-1.5 text-xs">
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('camera')}
+                  className="hover:text-[#d4a359] transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <span>📷</span>
+                  <span>الترجمة بالكاميرا والصور</span>
+                </button>
+              </li>
               <li>
                 <button
                   type="button"
@@ -69,11 +79,11 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
 
           {/* Cultural references */}
           <div className="space-y-2">
-            <div className="font-semibold text-[#f4efe6]">المراجع العلمية:</div>
+            <div className="font-semibold text-[#f4efe6]">المراجع العلمية والذكاء الاصطناعي:</div>
             <ul className="space-y-1 text-xs text-[#8f94a8]">
+              <li>تحليل بصري للنقوش مدعوم بـ Gemini Multimodal Vision</li>
               <li>قائمة جاردنر للعلامات المصرية (Gardiner's Sign List)</li>
               <li>حجر رشيد ونصوص فك الشفرة (1822)</li>
-              <li>قواعد اللغة المصرية في عصر الدولة الوسطى</li>
               <li>الترميز العالمي الموحد لليونيكود (U+13000–U+1342F)</li>
             </ul>
           </div>

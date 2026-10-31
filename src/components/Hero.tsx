@@ -1,12 +1,14 @@
 import React from 'react';
 
 interface HeroProps {
+  onStartCamera: () => void;
   onStartCartouche: () => void;
   onExploreAlphabet: () => void;
   onStartLessons: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
+  onStartCamera,
   onStartCartouche,
   onExploreAlphabet,
   onStartLessons,
@@ -34,62 +36,61 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex items-center gap-2 text-xs sm:text-sm text-[#d4a359] font-medium">
               <span>مدو نتر · كلام الآلهة</span>
               <span aria-hidden="true">·</span>
-              <span>حضارة ٥٠٠٠ عام</span>
+              <span>عدسة الترجمة بالكاميرا</span>
               <span aria-hidden="true">·</span>
               <span>تعلم تفاعلي مبسط</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#f4efe6] tracking-tight leading-[1.25] text-balance font-amiri">
-              تعلّم قراءة وكتابة اللغة الهيروغليفية{' '}
+              تعلّم وترجم اللغة الهيروغليفية{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-[#d4a359] to-[#faebd7]">
-                بسهولة ويسر
+                بالتصوير والكاميرا
               </span>
             </h1>
 
             <p className="text-base sm:text-lg text-[#b2b7ca] leading-relaxed max-w-2xl">
-              اكتشف أسرار أجدادنا الفراعنة من خلال منهج مبسط يبدأ من الأبجدية الأحادية (حرفاً بحرف)،
-              وصمم خرطوشتك الملكية الخاصة باسمك، وتدرب على قراءة أختام الملوك العظام كرمسيس وتوت عنخ آمون.
+              وجّه كاميرا هاتفك لأي نقش فرعوني على تمثال أو معبد أو صورة، واقرأ الترجمة الفورية باللغة العربية مع نطقها وسياقها التاريخي، أو اكتب اسمك في خرطوشة ملكية وتعلم الأبجدية بسهولة.
             </p>
 
             {/* Action buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <button
-                onClick={onStartCartouche}
+                onClick={onStartCamera}
                 className="px-6 py-3.5 bg-[#d4a359] hover:bg-[#e2b772] text-[#0c0d12] font-bold rounded-lg text-sm sm:text-base transition-colors shadow-lg shadow-[#d4a359]/10 cursor-pointer flex items-center gap-2"
               >
+                <span>📷</span>
+                <span>ترجم صورة أو نقش بالكاميرا</span>
+              </button>
+
+              <button
+                onClick={onStartCartouche}
+                className="px-6 py-3.5 bg-[#171924] hover:bg-[#202332] text-[#f4efe6] border border-[#2c3042] font-semibold rounded-lg text-sm sm:text-base transition-colors cursor-pointer flex items-center gap-2"
+              >
                 <span className="font-hieroglyph text-lg">𓍶</span>
-                <span>اصنع خرطوشتك باسمك الآن</span>
+                <span>صانع الخراطيش الملكية</span>
               </button>
 
               <button
                 onClick={onExploreAlphabet}
-                className="px-6 py-3.5 bg-[#171924] hover:bg-[#202332] text-[#f4efe6] border border-[#2c3042] font-semibold rounded-lg text-sm sm:text-base transition-colors cursor-pointer flex items-center gap-2"
-              >
-                <span className="font-hieroglyph text-lg">𓅓</span>
-                <span>استكشف حروف الأبجدية الـ 24</span>
-              </button>
-
-              <button
-                onClick={onStartLessons}
                 className="px-5 py-3.5 text-[#d4a359] hover:text-[#faebd7] font-semibold text-sm transition-colors cursor-pointer"
               >
-                الدروس التفاعلية الخمسة ←
+                الأبجدية الـ 24 ←
               </button>
             </div>
 
             {/* Quick trust / curriculum metric strip - clean unboxed */}
             <div className="pt-6 border-t border-[#1e202d] grid grid-cols-3 gap-4 text-right">
               <div>
-                <div className="text-2xl font-bold font-mono tabular-nums text-[#d4a359]">24</div>
+                <div className="text-2xl font-bold font-mono tabular-nums text-[#d4a359]">AI 📷</div>
+                <div className="text-xs text-[#8f94a8] mt-1">كشف وترجمة فورية بالرؤية</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold font-mono tabular-nums text-[#38bdf8]">24</div>
                 <div className="text-xs text-[#8f94a8] mt-1">حرفاً أحادياً لكتابة أي اسم</div>
               </div>
               <div>
-                <div className="text-2xl font-bold font-mono tabular-nums text-[#38bdf8]">5</div>
-                <div className="text-xs text-[#8f94a8] mt-1">دروس تفاعلية سريعة وممتعة</div>
-              </div>
-              <div>
                 <div className="text-2xl font-bold font-mono tabular-nums text-[#4ade80]">100%</div>
-                <div className="text-xs text-[#8f94a8] mt-1">خرائط فونيتيكية دقيقة وموثقة</div>
+                <div className="text-xs text-[#8f94a8] mt-1">شرح صوتي وتاريخي متكامل</div>
               </div>
             </div>
 
@@ -99,8 +100,8 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5">
             <div className="bg-[#141620] border border-[#272b3c] rounded-2xl p-6 shadow-xl relative overflow-hidden group">
               <div className="flex items-center justify-between mb-4 border-b border-[#212433] pb-3 text-xs text-[#8f94a8]">
-                <span>نموذج الخرطوشة الملكية</span>
-                <span className="font-hieroglyph text-[#d4a359] text-sm">𓇳𓏠𓆣</span>
+                <span>المترجم البصري المباشر</span>
+                <span className="font-hieroglyph text-[#d4a359] text-sm">𓁹 𓏞</span>
               </div>
 
               {/* Sample Royal Cartouche Showcase */}
@@ -120,12 +121,13 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
 
               <div className="mt-4 flex items-center justify-between text-xs text-[#a0a5b8] pt-2">
-                <span>جرّب كتابة اسمك أنت الآن بنفس الطريقة</span>
+                <span>جرّب تصوير أي نقش الآن لترجمته</span>
                 <button
-                  onClick={onStartCartouche}
-                  className="text-[#d4a359] font-medium hover:underline cursor-pointer"
+                  onClick={onStartCamera}
+                  className="text-[#d4a359] font-medium hover:underline cursor-pointer flex items-center gap-1"
                 >
-                  فتح الصانع
+                  <span>فتح الكاميرا</span>
+                  <span>←</span>
                 </button>
               </div>
 

@@ -1,7 +1,9 @@
 {
   "name": "مدو نتر | مدرسة الهيروغليفية المبسطة",
   "description": "تطبيق تعليمي تفاعلي شامل لتعلم اللغة الهيروغليفية المصرية القديمة بسهولة، مع صانع الخراطيش الملكية، الأبجدية، الدروس، البطاقات الذكية، والكاتب الذكي.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": [
+    "camera"
+  ],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
   ]

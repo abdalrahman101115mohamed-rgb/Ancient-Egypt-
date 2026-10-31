@@ -6,6 +6,7 @@
 import { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { CameraTranslator } from './components/CameraTranslator';
 import { CartoucheStudio } from './components/CartoucheStudio';
 import { AlphabetExplorer } from './components/AlphabetExplorer';
 import { InteractiveLessons } from './components/InteractiveLessons';
@@ -15,7 +16,7 @@ import { ScribeTutor } from './components/ScribeTutor';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('cartouche');
+  const [activeTab, setActiveTab] = useState<string>('camera');
 
   return (
     <div className="min-h-screen bg-[#0c0d12] text-[#f4efe6] flex flex-col font-sans selection:bg-[#d4a359]/30 selection:text-[#faebd7]">
@@ -24,26 +25,33 @@ export default function App() {
 
       {/* Main Learning Hub */}
       <main className="flex-1">
-        {/* Hero is shown prominently on hero tab or cartouche view start */}
+        {/* Hero is shown prominently on hero tab */}
         {activeTab === 'hero' && (
-          <Hero
-            onStartCartouche={() => setActiveTab('cartouche')}
-            onExploreAlphabet={() => setActiveTab('alphabet')}
-            onStartLessons={() => setActiveTab('lessons')}
-          />
-        )}
-
-        {/* Dynamic Interactive Workspaces */}
-        {activeTab === 'cartouche' && (
           <div>
             <Hero
+              onStartCamera={() => setActiveTab('camera')}
               onStartCartouche={() => setActiveTab('cartouche')}
               onExploreAlphabet={() => setActiveTab('alphabet')}
               onStartLessons={() => setActiveTab('lessons')}
             />
-            <CartoucheStudio />
+            <CameraTranslator />
           </div>
         )}
+
+        {/* Dynamic Interactive Workspaces */}
+        {activeTab === 'camera' && (
+          <div>
+            <Hero
+              onStartCamera={() => setActiveTab('camera')}
+              onStartCartouche={() => setActiveTab('cartouche')}
+              onExploreAlphabet={() => setActiveTab('alphabet')}
+              onStartLessons={() => setActiveTab('lessons')}
+            />
+            <CameraTranslator />
+          </div>
+        )}
+
+        {activeTab === 'cartouche' && <CartoucheStudio />}
 
         {activeTab === 'alphabet' && <AlphabetExplorer />}
 

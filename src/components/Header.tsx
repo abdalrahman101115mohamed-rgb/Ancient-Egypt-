@@ -33,6 +33,15 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
           {/* Zone 2: Concise single-line text navigation links */}
           <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-[#a0a5b8]">
             <button
+              onClick={() => setActiveTab('camera')}
+              className={`whitespace-nowrap cursor-pointer transition-colors hover:text-[#f4efe6] py-1 flex items-center gap-1.5 ${
+                activeTab === 'camera' ? 'text-[#d4a359] border-b-2 border-[#d4a359] font-bold' : ''
+              }`}
+            >
+              <span>📷</span>
+              <span>الترجمة بالكاميرا</span>
+            </button>
+            <button
               onClick={() => setActiveTab('cartouche')}
               className={`whitespace-nowrap cursor-pointer transition-colors hover:text-[#f4efe6] py-1 ${
                 activeTab === 'cartouche' ? 'text-[#d4a359] border-b-2 border-[#d4a359]' : ''
@@ -78,25 +87,34 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
                 activeTab === 'scribe' ? 'text-[#d4a359] border-b-2 border-[#d4a359]' : ''
               }`}
             >
-              حكيم الكَتَبَة الذكي
+              حكيم الكَتَبَة
             </button>
           </nav>
 
           {/* Zone 3: 1 Primary Action */}
           <div className="flex items-center gap-3 shrink-0">
             <button
-              onClick={() => setActiveTab('cartouche')}
+              onClick={() => setActiveTab('camera')}
               className="px-4 py-2.5 text-xs sm:text-sm font-semibold text-[#0c0d12] bg-[#d4a359] hover:bg-[#e2b772] transition-colors rounded-lg shadow-sm whitespace-nowrap cursor-pointer flex items-center gap-2"
             >
-              <span className="font-hieroglyph text-base">𓍶</span>
-              <span>اكتب اسمك كملك فرعوني</span>
+              <span>📷</span>
+              <span>صور وترجم فوراً</span>
             </button>
           </div>
 
         </div>
 
         {/* Mobile Navigation bar for seamless scrolling on smaller viewports */}
-        <div className="lg:hidden flex items-center gap-3 overflow-x-auto py-2.5 border-t border-[#1e202d] text-xs font-medium no-scrollbar">
+        <div className="lg:hidden flex items-center gap-2.5 overflow-x-auto py-2.5 border-t border-[#1e202d] text-xs font-medium no-scrollbar">
+          <button
+            onClick={() => setActiveTab('camera')}
+            className={`whitespace-nowrap px-3 py-1.5 rounded-md transition-colors flex items-center gap-1.5 ${
+              activeTab === 'camera' ? 'bg-[#d4a359]/20 text-[#d4a359] font-bold' : 'text-[#a0a5b8]'
+            }`}
+          >
+            <span>📷</span>
+            <span>الترجمة بالكاميرا</span>
+          </button>
           <button
             onClick={() => setActiveTab('cartouche')}
             className={`whitespace-nowrap px-3 py-1.5 rounded-md transition-colors ${
